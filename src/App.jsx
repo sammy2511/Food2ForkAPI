@@ -14,7 +14,8 @@ class App extends Component {
 
   searchRecipes(){
     //const api_key = '737fa842da3e4ce9dd0d1e17f18c3ee4';
-    const api_key = 'ad17603f8f92f364499257a5b80ad36e';
+    //const api_key = 'ad17603f8f92f364499257a5b80ad36e';
+    const api_key = 'd3ab033003c2e546e131f5b45402e3e9';
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
     console.log(baseUri);
@@ -30,7 +31,7 @@ class App extends Component {
   render(){
     return(
       <div className="container App">
-        <h1 className = 'App-title'>Food 2 Fork API</h1>
+        <h1 className = 'App-title'>Tasty Table Delights</h1>
         <FormGroup>
           <InputGroup>
             <FormControl
