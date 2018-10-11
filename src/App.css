@@ -43,3 +43,96 @@ body{
   bottom: 0;
   padding: 10px;
 }
+
+
+/* card */
+.cardcont {
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.85);
+
+}
+
+/* poster */
+.poster-container {
+  .poster {
+    width: 100%;
+    height: 100%;
+    border: 3px solid white;
+    border-radius: 3px;
+    align-items: flex-end;
+  }
+}
+
+/* meta data */
+.meta-data-container {
+  padding: 15px;
+  color: $lightGrey;
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: $lato;
+    font-size: 2.2em;
+  }
+
+  li {
+    align-content: left;
+  }
+
+  .additional-details {
+    margin: 35px 0 20px;
+    font-family: $oswald;
+
+    .genre-list {
+      display: block;
+      color: $limeGreen;
+      font-size: 1.4em;
+    }
+
+  }
+
+  .meta-data {
+    display: block;
+    color: $limeGreen;
+    font-size: 1.6em;
+    line-height: 1.1em;
+  }
+}
+
+.publisher {
+  display: block;
+  padding-bottom: 0.25em;
+  color: $limeGreen;
+  font-size: 1.3em;
+  font-family: $oswald;
+}
+
+/* Breakpoints */
+
+// sm up
+@include media-breakpoint-up(sm) {
+  /* meta data */
+  .meta-data-container {
+    padding: 25px;
+  }
+}
+// END sm up
+
+// md up
+@include media-breakpoint-up(md) {
+  /* poster */
+  .poster-container {
+    .poster {
+      border-radius: 3px 0 0 3px;
+      border: 3px solid #fff;
+    }
+  }
+  /* meta data */
+  .meta-data-container {
+    padding: 25px;
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+}

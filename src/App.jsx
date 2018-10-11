@@ -13,10 +13,11 @@ class App extends Component {
   }
 
   searchRecipes(){
-    const api_key = '737fa842da3e4ce9dd0d1e17f18c3ee4';
+    //const api_key = '737fa842da3e4ce9dd0d1e17f18c3ee4';
+    const api_key = 'ad17603f8f92f364499257a5b80ad36e';
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
-
+    console.log(baseUri);
     //REST Call
     fetch(baseUri)
     .then(response => response.json())
@@ -34,7 +35,7 @@ class App extends Component {
           <InputGroup>
             <FormControl
               type = "text"
-              placeholder = "Search"
+              placeholder = "Search by Dish or Ingredient"
               value = {this.state.query}
               onChange = {event => {this.setState({query:event.target.value})}}
               onKeyPress = {

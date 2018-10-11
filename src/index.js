@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App'
 import Items from './Items'
 import Recipe from './Recipe'
-import { Router,Route } from 'react-router'
+import { Route } from 'react-router'
 import {createBrowserHistory} from 'history'
+import { BrowserRouter as Router} from 'react-router-dom'
 
-const history = createBrowserHistory();
+//const history = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={history}>
+  <Router>
       <div>
-        <Route path='/' component={App} />
-        <Route path='/Recipe' component={Recipe} />
+        <Route exact path='/app' component={App} />
+        <Route path='/Recipe/:id' component={Recipe} />
       </div>
     </Router>,document.getElementById('root')
 )
