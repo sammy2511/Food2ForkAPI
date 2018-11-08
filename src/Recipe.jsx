@@ -17,10 +17,11 @@ class Recipe extends Component {
 
   componentWillMount() {
     const api_key  = process.env.API_KEY;
+    console.log(api_key);
     const baseUri = `https://www.food2fork.com/api/get?key=${api_key}&rId=${this.state.recipe_id}`;
     console.log(baseUri);
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    fetch(proxyUrl + baseUri)
+    fetch(baseUri)
     .then(response => response.json())
     .then(json => {
       const { recipe } = json;

@@ -16,11 +16,12 @@ class App extends Component {
 
   searchRecipes(){
     const api_key  = process.env.API_KEY;
+    console.log(api_key);
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
     //REST Call
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    fetch(proxyUrl + baseUri)
+    fetch(baseUri)
     .then(response => response.json())
     .then(json =>{
       const { recipes } = json;
