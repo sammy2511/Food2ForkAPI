@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {FormGroup , FormControl, InputGroup, Glyphicon } from 'react-bootstrap'
+import Cookies from 'universal-cookie';
 import Items from './Items'
 import './App.css'
+const cookies = new Cookies();
 
 class App extends Component {
   constructor(props){
@@ -13,12 +15,9 @@ class App extends Component {
   }
 
   searchRecipes(){
-    //const api_key = '737fa842da3e4ce9dd0d1e17f18c3ee4';
-    //const api_key = 'ad17603f8f92f364499257a5b80ad36e';
-    const api_key = 'd3ab033003c2e546e131f5b45402e3e9';
+    const api_key  = process.env.API_KEY;
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
-    console.log(baseUri);
     //REST Call
     fetch(baseUri)
     .then(response => response.json())

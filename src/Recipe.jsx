@@ -16,9 +16,7 @@ class Recipe extends Component {
   }
 
   componentWillMount() {
-    //const api_key = '737fa842da3e4ce9dd0d1e17f18c3ee4';
-    //const api_key = 'ad17603f8f92f364499257a5b80ad36e';
-    const api_key = 'd3ab033003c2e546e131f5b45402e3e9';
+    const api_key  = process.env.API_KEY;
     const baseUri = `https://www.food2fork.com/api/get?key=${api_key}&rId=${this.state.recipe_id}`;
     console.log(baseUri);
 
