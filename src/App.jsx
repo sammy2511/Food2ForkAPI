@@ -19,7 +19,12 @@ class App extends Component {
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
     //REST Call
-    fetch(baseUri)
+    var myOptions = {
+    method: 'GET',
+    mode: 'no-cors',
+    cache: 'default'
+    };
+    fetch(baseUri,myOptions)
     .then(response => response.json())
     .then(json =>{
       const { recipes } = json;

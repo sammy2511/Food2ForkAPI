@@ -19,8 +19,12 @@ class Recipe extends Component {
     const api_key  = process.env.API_KEY;
     const baseUri = `https://www.food2fork.com/api/get?key=${api_key}&rId=${this.state.recipe_id}`;
     console.log(baseUri);
-
-    fetch(baseUri)
+    var myOptions = {
+    method: 'GET',
+    mode: 'no-cors',
+    cache: 'default'
+    };
+    fetch(baseUri,myOptions)
     .then(response => response.json())
     .then(json => {
       const { recipe } = json;
