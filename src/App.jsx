@@ -19,12 +19,8 @@ class App extends Component {
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
     //REST Call
-    var myOptions = {
-    method: 'GET',
-    mode: 'no-cors',
-    cache: 'default'
-    };
-    fetch(baseUri,myOptions)
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    fetch(proxyUrl + baseUri)
     .then(response => response.json())
     .then(json =>{
       const { recipes } = json;
