@@ -15,8 +15,7 @@ class App extends Component {
   }
 
   searchRecipes(){
-    const api_key  = process.env.API_KEY;
-    console.log(api_key);
+    const api_key  = '737fa842da3e4ce9dd0d1e17f18c3ee4';
     const searchQuery = encodeURIComponent(this.state.query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
     //REST Call
