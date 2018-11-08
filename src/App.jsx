@@ -31,7 +31,12 @@ class App extends Component {
   render(){
     return(
       <div className="container App">
-        <h1 className = 'App-title'>Tasty Table Delights</h1>
+      <div class="jumbotron container App-title">
+  <h1 class="display-4">Tasty Table Delights</h1>
+  <p class="lead">Welcome to Tasty Table Delights.You can search your favorite recipe.</p>
+  <hr class="my-4"/>
+  <p>You are just one search away from wonderful delights.</p>
+</div>
         <FormGroup>
           <InputGroup>
             <FormControl
