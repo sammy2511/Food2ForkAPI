@@ -1,7 +1,10 @@
 //const api_key  = '737fa842da3e4ce9dd0d1e17f18c3ee4';
-const api_key = 'd3ab033003c2e546e131f5b45402e3e9'
+const api_key = 'd3ab033003c2e546e131f5b45402e3e9' || process.env.API_KEY
+
+
 export function loadRecipes(query){
 
+    console.log(api_key);
     const searchQuery = encodeURIComponent(query);
     const baseUri = `https://www.food2fork.com/api/search?key=${api_key}&q=${searchQuery}`;
     return(dispatch)=>{

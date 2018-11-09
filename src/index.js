@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App'
 import Recipe from './Recipe'
 import NotFound from './NotFound'
+import Card from './RecipeCard'
 import { Route } from 'react-router'
 import { BrowserRouter as Router,Switch} from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux';

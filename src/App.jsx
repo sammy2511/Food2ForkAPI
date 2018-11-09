@@ -22,7 +22,6 @@ class App extends Component {
     return(
       <div className="container App">
       <div class="jumbotron container App-title">
-      <img src=''/>
   <h1 class="display-4">Tasty Table Delights</h1>
   <p class="lead">Welcome to Tasty Table Delights.You can search your favorite recipe.</p>
   <hr class="my-4"/>
