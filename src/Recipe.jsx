@@ -1,31 +1,30 @@
 import React , { Component } from 'react'
 import './App.css'
+import Loading from './Loading'
 import {Button } from 'react-bootstrap'
-import {createBrowserHistory} from 'history'
 import {withRouter} from 'react-router-dom';
-import {Link} from 'react-router-dom'
-const history = createBrowserHistory();
+
+import {connect} from "react-redux";
+import * as actionCreators from "./actions/index.js"
+
+let recipe = null;
 
 class Recipe extends Component {
   constructor(props) {
     super(props);
     this.state ={
+      loading:true,
       recipe_id:this.props.match.params.id,
       recipe:null
     }
   }
 
   componentWillMount() {
-    const api_key  = '737fa842da3e4ce9dd0d1e17f18c3ee4';
-    const baseUri = `https://www.food2fork.com/api/get?key=${api_key}&rId=${this.state.recipe_id}`;
-    console.log(baseUri);
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    fetch(baseUri)
-    .then(response => response.json())
-    .then(json => {
-      const { recipe } = json;
-      this.setState({ recipe })
-    })
+      this.props.loadSingleRecipe(this.state.recipe_id);
+ }
+
+ componentDidMount(){
+    setTimeout(() => this.setState({ loading: false }), 800);
  }
 
  backHome(){
@@ -34,8 +33,14 @@ class Recipe extends Component {
 
 
   render(){
-    const { recipe } = this.state;
-
+    if(this.props.Recipe !== null){
+      recipe = this.props.Recipe;
+    }
+    if(this.state.loading){
+      return(
+        <Loading />
+      )
+    }
     return(
       recipe !== null ?
       <div>
@@ -44,6 +49,7 @@ class Recipe extends Component {
             <h2>{recipe.title}</h2>
             <div className="dish-image" align="center">
               <img className="img-thumbnail"
+              alt='dish'
               src = {recipe.image_url}/>
             </div>
             <div>by: {recipe.publisher}</div>
@@ -67,7 +73,6 @@ class Recipe extends Component {
             <div className="other-details">
               <h4>References</h4>
               <span>Publisher : {recipe.publisher} </span><br />
-              <span>Social Rank: {recipe.social_rank}</span><br />
               <span>food2fork Reference: <a href={recipe.f2f_url}>{recipe.f2f_url}</a></span><br />
             </div>
             <Button className="btn btn-primary"
@@ -80,4 +85,9 @@ class Recipe extends Component {
   }
 }
 
-export default withRouter(Recipe);
+const mapStateToProps=(state)=>{
+    console.log('mapToProps',state);
+    return state
+};
+
+export default withRouter(connect(mapStateToProps,actionCreators)(Recipe));

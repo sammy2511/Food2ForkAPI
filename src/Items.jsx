@@ -1,13 +1,9 @@
 import React , { Component } from 'react'
 import './App.css'
-import {createBrowserHistory} from 'history'
 import {withRouter} from 'react-router-dom';
-const history = createBrowserHistory();
 
 class Item extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
 
 
@@ -24,7 +20,6 @@ class Item extends Component {
       <div>
         {
           recipes.map((recipe,key) => {
-            console.log(recipe);
             const imgUrl = recipe.image_url;
             return(
               <div

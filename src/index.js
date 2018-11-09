@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
-import Items from './Items'
 import Recipe from './Recipe'
 import NotFound from './NotFound'
 import { Route } from 'react-router'
-import {createBrowserHistory} from 'history'
 import { BrowserRouter as Router,Switch} from 'react-router-dom'
+import {createStore, applyMiddleware} from 'redux';
+import {Provider} from "react-redux";
+import thunk from "redux-thunk";
+import reducers from "./reducers/index.js";
+let store = createStore(reducers, applyMiddleware(thunk))
 
-//const history = createBrowserHistory();
 
 ReactDOM.render(
+  <Provider store = {store}>
   <Router>
       <div>
         <Switch>
@@ -19,5 +22,7 @@ ReactDOM.render(
           <Route  component={NotFound} />
         </Switch>
       </div>
-    </Router>,document.getElementById('root')
+    </Router>
+  </Provider>
+  ,document.getElementById('root')
 )
